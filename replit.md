@@ -113,10 +113,13 @@ Three tabs for different content:
 ## Recent Changes (October 13, 2025)
 - Created complete portfolio website structure
 - Implemented all sections and features
-- Added 3D animated background with Three.js
-- Built custom cursor tracer system
-- Created dark/light theme toggle
-- Added scroll-triggered animations
+- Added 3D animated background with Three.js (gold and silver particles/torus)
+- Built custom cursor tracer system with white cursor for dark theme, black for light theme
+- Created dark/light theme toggle with localStorage persistence
+- **REDESIGNED**: Changed color scheme from blue to elegant black/white with gold (#d4af37) and silver (#c0c0c0) accents
+- **REDESIGNED**: Moved semi-circular profile image to right side with slide-in animation
+- Improved all animations with smoother cubic-bezier easing functions
+- Added scroll-triggered animations with enhanced transitions
 - Implemented portfolio tabs (Projects, Certificates, Skills)
 - Created contact form with validation
 - Added CV download functionality
