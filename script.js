@@ -24,10 +24,10 @@ function initThree() {
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
     
     const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.02,
-        color: 0x6366f1,
+        size: 0.025,
+        color: 0xd4af37,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.6,
         blending: THREE.AdditiveBlending
     });
     
@@ -36,10 +36,10 @@ function initThree() {
     
     const geometry = new THREE.TorusGeometry(1.5, 0.3, 16, 100);
     const material = new THREE.MeshBasicMaterial({
-        color: 0x8b5cf6,
+        color: 0xc0c0c0,
         wireframe: true,
         transparent: true,
-        opacity: 0.3
+        opacity: 0.25
     });
     const torus = new THREE.Mesh(geometry, material);
     scene.add(torus);
@@ -47,15 +47,15 @@ function initThree() {
     function animate() {
         requestAnimationFrame(animate);
         
-        particles.rotation.x += 0.0005;
-        particles.rotation.y += 0.001;
+        particles.rotation.x += 0.0003;
+        particles.rotation.y += 0.0006;
         
-        torus.rotation.x += 0.01;
-        torus.rotation.y += 0.005;
-        torus.rotation.z += 0.01;
+        torus.rotation.x += 0.006;
+        torus.rotation.y += 0.003;
+        torus.rotation.z += 0.006;
         
-        camera.position.x += (targetX - camera.position.x) * 0.05;
-        camera.position.y += (-targetY - camera.position.y) * 0.05;
+        camera.position.x += (targetX - camera.position.x) * 0.03;
+        camera.position.y += (-targetY - camera.position.y) * 0.03;
         
         renderer.render(scene, camera);
     }
@@ -82,8 +82,8 @@ function initCursor() {
         cursor.style.left = cursorX + 'px';
         cursor.style.top = cursorY + 'px';
         
-        followerX += (cursorX - followerX) * 0.1;
-        followerY += (cursorY - followerY) * 0.1;
+        followerX += (cursorX - followerX) * 0.15;
+        followerY += (cursorY - followerY) * 0.15;
         
         follower.style.left = followerX + 'px';
         follower.style.top = followerY + 'px';
