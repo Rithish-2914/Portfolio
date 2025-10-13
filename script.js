@@ -76,14 +76,14 @@ function initCursor() {
         
         targetX = (e.clientX / window.innerWidth) * 2 - 1;
         targetY = (e.clientY / window.innerHeight) * 2 - 1;
-    });
+    }, { passive: true });
     
     function updateCursor() {
         cursor.style.left = cursorX + 'px';
         cursor.style.top = cursorY + 'px';
         
-        followerX += (cursorX - followerX) * 0.15;
-        followerY += (cursorY - followerY) * 0.15;
+        followerX += (cursorX - followerX) * 0.2;
+        followerY += (cursorY - followerY) * 0.2;
         
         follower.style.left = followerX + 'px';
         follower.style.top = followerY + 'px';
@@ -266,26 +266,31 @@ function initDownloadCV() {
         const cvContent = `
 CURRICULUM VITAE
 
-Name: Your Name
-Email: hello@portfolio.com
+Name: Bajjuri Rithish
+Email: bajjuririthish@portfolio.com
 Phone: +1 234 567 8900
 Location: New York, USA
 
 PROFESSIONAL SUMMARY
-Passionate developer and designer with 5+ years of experience in creating beautiful, 
-functional websites and applications. Specializing in modern web technologies and 
-creating immersive digital experiences.
+Passionate full stack developer and designer with 5+ years of experience in creating 
+beautiful, functional websites and applications. Specializing in modern web technologies 
+and creating immersive digital experiences.
 
 EXPERIENCE
-Senior Developer | Tech Company (2020 - Present)
-- Led development of 50+ successful projects
+Full Stack Developer | TechCorp Solutions (2022 - Present)
+- Led development of 50+ successful enterprise-level projects
 - Managed a team of 5 developers
-- Implemented modern web technologies
+- Implemented modern web technologies and scalable solutions
 
-SKILLS
-Frontend: HTML, CSS, JavaScript, React.js
-Backend: Node.js, Python, Database Management
-Design: UI/UX Design, Figma
+Frontend Developer | InnovateLabs (2020 - 2022)
+- Built responsive UI/UX for SaaS products
+- Developed interactive web applications
+
+TECHNICAL SKILLS
+Frontend: HTML5, CSS3, JavaScript, React.js, Vue.js, Angular
+Backend: Node.js, Python, PHP, Java
+Database: MongoDB, PostgreSQL
+Tools: Git, Docker, AWS, Figma
 
 EDUCATION
 Bachelor of Computer Science
@@ -296,7 +301,7 @@ University Name (2015 - 2019)
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'CV_Portfolio.txt';
+        a.download = 'CV_Bajjuri_Rithish.txt';
         a.click();
         window.URL.revokeObjectURL(url);
         

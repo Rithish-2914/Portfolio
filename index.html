@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Interactive 3D Experience</title>
+    <title>Bajjuri Rithish - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Portfolio</div>
+            <div class="logo">Bajjuri Rithish</div>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -40,8 +40,8 @@
             <div class="profile-image"></div>
         </div>
         <div class="home-content">
-            <h1 class="glitch" data-text="Welcome to My Portfolio">Welcome to My Portfolio</h1>
-            <p class="subtitle">Creative Developer & Designer</p>
+            <h1 class="glitch" data-text="Hi, I'm Bajjuri Rithish">Hi, I'm Bajjuri Rithish</h1>
+            <p class="subtitle">Full Stack Developer & Creative Designer</p>
             <div class="cta-buttons">
                 <a href="#portfolio" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -58,7 +58,7 @@
             <h2 class="section-title" data-aos="fade-up">About Me</h2>
             <div class="about-content">
                 <div class="about-text" data-aos="fade-right">
-                    <p>Hello! I'm a passionate developer and designer with a love for creating beautiful, functional websites and applications.</p>
+                    <p>Hello! I'm Bajjuri Rithish, a passionate full stack developer and designer with a love for creating beautiful, functional websites and applications.</p>
                     <p>With years of experience in web development, I specialize in creating immersive digital experiences that combine creativity with cutting-edge technology.</p>
                     <p>I'm constantly learning and evolving, staying up-to-date with the latest trends and technologies in the industry.</p>
                     <button class="btn btn-download" id="downloadCV">
@@ -89,8 +89,9 @@
             
             <div class="portfolio-nav">
                 <button class="portfolio-tab active" data-tab="projects">Projects</button>
+                <button class="portfolio-tab" data-tab="startups">Startups/Companies</button>
                 <button class="portfolio-tab" data-tab="certificates">Certificates</button>
-                <button class="portfolio-tab" data-tab="skills">Skills</button>
+                <button class="portfolio-tab" data-tab="techstack">TechStack</button>
             </div>
 
             <div class="portfolio-content">
@@ -195,105 +196,144 @@
                     </div>
                 </div>
 
-                <div class="tab-content" id="skills">
-                    <div class="skills-container">
-                        <div class="skill-category" data-aos="fade-up">
-                            <h3>Frontend Development</h3>
-                            <div class="skill-bars">
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>HTML/CSS</span>
-                                        <span>95%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-fill" data-skill="95"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>JavaScript</span>
-                                        <span>90%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-fill" data-skill="90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>React.js</span>
-                                        <span>85%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-fill" data-skill="85"></div>
-                                    </div>
-                                </div>
+                <div class="tab-content" id="startups">
+                    <div class="startups-grid">
+                        <div class="startup-card" data-aos="zoom-in">
+                            <div class="startup-icon">
+                                <i class="fas fa-rocket"></i>
                             </div>
+                            <h3>TechCorp Solutions</h3>
+                            <p class="startup-role">Full Stack Developer</p>
+                            <p class="startup-duration">2022 - Present</p>
+                            <p class="startup-desc">Leading development of enterprise-level web applications</p>
                         </div>
-
-                        <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                            <h3>Backend Development</h3>
-                            <div class="skill-bars">
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>Node.js</span>
-                                        <span>80%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-fill" data-skill="80"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>Python</span>
-                                        <span>75%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-fill" data-skill="75"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>Database</span>
-                                        <span>85%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-fill" data-skill="85"></div>
-                                    </div>
-                                </div>
+                        <div class="startup-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="startup-icon">
+                                <i class="fas fa-building"></i>
                             </div>
+                            <h3>InnovateLabs</h3>
+                            <p class="startup-role">Frontend Developer</p>
+                            <p class="startup-duration">2020 - 2022</p>
+                            <p class="startup-desc">Built responsive UI/UX for SaaS products</p>
                         </div>
-
-                        <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                            <h3>Design & Tools</h3>
-                            <div class="skill-bars">
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>UI/UX Design</span>
-                                        <span>88%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-fill" data-skill="88"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>Figma</span>
-                                        <span>90%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-fill" data-skill="90"></div>
-                                    </div>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-info">
-                                        <span>Git & GitHub</span>
-                                        <span>92%</span>
-                                    </div>
-                                    <div class="skill-progress">
-                                        <div class="skill-fill" data-skill="92"></div>
-                                    </div>
-                                </div>
+                        <div class="startup-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="startup-icon">
+                                <i class="fas fa-lightbulb"></i>
                             </div>
+                            <h3>StartupHub</h3>
+                            <p class="startup-role">Web Developer</p>
+                            <p class="startup-duration">2019 - 2020</p>
+                            <p class="startup-desc">Developed MVPs for early-stage startups</p>
+                        </div>
+                        <div class="startup-card" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="startup-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>CodeCraft Inc</h3>
+                            <p class="startup-role">Junior Developer</p>
+                            <p class="startup-duration">2018 - 2019</p>
+                            <p class="startup-desc">Started career building websites and applications</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="techstack">
+                    <div class="techstack-grid">
+                        <div class="tech-card" data-aos="fade-up">
+                            <div class="tech-icon">
+                                <i class="fab fa-html5"></i>
+                            </div>
+                            <h3>HTML5</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="50">
+                            <div class="tech-icon">
+                                <i class="fab fa-css3-alt"></i>
+                            </div>
+                            <h3>CSS3</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="tech-icon">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <h3>JavaScript</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="150">
+                            <div class="tech-icon">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <h3>React</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="tech-icon">
+                                <i class="fab fa-vuejs"></i>
+                            </div>
+                            <h3>Vue.js</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="250">
+                            <div class="tech-icon">
+                                <i class="fab fa-angular"></i>
+                            </div>
+                            <h3>Angular</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="tech-icon">
+                                <i class="fab fa-node-js"></i>
+                            </div>
+                            <h3>Node.js</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="350">
+                            <div class="tech-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <h3>Python</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="tech-icon">
+                                <i class="fab fa-php"></i>
+                            </div>
+                            <h3>PHP</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="450">
+                            <div class="tech-icon">
+                                <i class="fab fa-java"></i>
+                            </div>
+                            <h3>Java</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="500">
+                            <div class="tech-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <h3>Git</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="550">
+                            <div class="tech-icon">
+                                <i class="fab fa-docker"></i>
+                            </div>
+                            <h3>Docker</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="600">
+                            <div class="tech-icon">
+                                <i class="fab fa-aws"></i>
+                            </div>
+                            <h3>AWS</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="650">
+                            <div class="tech-icon">
+                                <i class="fab fa-figma"></i>
+                            </div>
+                            <h3>Figma</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="700">
+                            <div class="tech-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3>MongoDB</h3>
+                        </div>
+                        <div class="tech-card" data-aos="fade-up" data-aos-delay="750">
+                            <div class="tech-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3>PostgreSQL</h3>
                         </div>
                     </div>
                 </div>
