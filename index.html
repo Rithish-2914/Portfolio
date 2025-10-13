@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Interactive 3D Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="section home-section">
+        <canvas id="three-canvas"></canvas>
+        <div class="home-content">
+            <div class="profile-image-container">
+                <div class="profile-image"></div>
+            </div>
+            <h1 class="glitch" data-text="Welcome to My Portfolio">Welcome to My Portfolio</h1>
+            <p class="subtitle">Creative Developer & Designer</p>
+            <div class="cta-buttons">
+                <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
+
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <p>Hello! I'm a passionate developer and designer with a love for creating beautiful, functional websites and applications.</p>
+                    <p>With years of experience in web development, I specialize in creating immersive digital experiences that combine creativity with cutting-edge technology.</p>
+                    <p>I'm constantly learning and evolving, staying up-to-date with the latest trends and technologies in the industry.</p>
+                    <button class="btn btn-download" id="downloadCV">
+                        <i class="fas fa-download"></i> Download CV
+                    </button>
+                </div>
+                <div class="about-stats" data-aos="fade-left">
+                    <div class="stat-card">
+                        <h3>50+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>30+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>5+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section portfolio-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Portfolio</h2>
+            
+            <div class="portfolio-nav">
+                <button class="portfolio-tab active" data-tab="projects">Projects</button>
+                <button class="portfolio-tab" data-tab="certificates">Certificates</button>
+                <button class="portfolio-tab" data-tab="skills">Skills</button>
+            </div>
+
+            <div class="portfolio-content">
+                <div class="tab-content active" id="projects">
+                    <div class="projects-grid">
+                        <div class="project-card" data-aos="zoom-in">
+                            <div class="project-image">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>E-Commerce Platform</h3>
+                                <p>A full-stack e-commerce solution with payment integration</p>
+                                <div class="project-tags">
+                                    <span>React</span>
+                                    <span>Node.js</span>
+                                    <span>MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="project-image">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Social Media Dashboard</h3>
+                                <p>Analytics dashboard with real-time data visualization</p>
+                                <div class="project-tags">
+                                    <span>Vue.js</span>
+                                    <span>Chart.js</span>
+                                    <span>API</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="project-image">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Portfolio Website</h3>
+                                <p>3D animated portfolio with interactive elements</p>
+                                <div class="project-tags">
+                                    <span>Three.js</span>
+                                    <span>JavaScript</span>
+                                    <span>CSS3</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="project-image">
+                                <div class="project-overlay">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Task Management App</h3>
+                                <p>Collaborative task management with team features</p>
+                                <div class="project-tags">
+                                    <span>Angular</span>
+                                    <span>Firebase</span>
+                                    <span>Material UI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="certificates">
+                    <div class="certificates-grid">
+                        <div class="certificate-card" data-aos="flip-left">
+                            <i class="fas fa-certificate"></i>
+                            <h3>Web Development Certification</h3>
+                            <p>Advanced Web Development - 2024</p>
+                            <button class="btn btn-small">View Certificate</button>
+                        </div>
+                        <div class="certificate-card" data-aos="flip-left" data-aos-delay="100">
+                            <i class="fas fa-certificate"></i>
+                            <h3>JavaScript Expert</h3>
+                            <p>Advanced JavaScript Programming - 2024</p>
+                            <button class="btn btn-small">View Certificate</button>
+                        </div>
+                        <div class="certificate-card" data-aos="flip-left" data-aos-delay="200">
+                            <i class="fas fa-certificate"></i>
+                            <h3>UI/UX Design</h3>
+                            <p>User Interface & Experience Design - 2023</p>
+                            <button class="btn btn-small">View Certificate</button>
+                        </div>
+                        <div class="certificate-card" data-aos="flip-left" data-aos-delay="300">
+                            <i class="fas fa-certificate"></i>
+                            <h3>Cloud Computing</h3>
+                            <p>AWS Cloud Practitioner - 2023</p>
+                            <button class="btn btn-small">View Certificate</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="skills">
+                    <div class="skills-container">
+                        <div class="skill-category" data-aos="fade-up">
+                            <h3>Frontend Development</h3>
+                            <div class="skill-bars">
+                                <div class="skill-bar">
+                                    <div class="skill-info">
+                                        <span>HTML/CSS</span>
+                                        <span>95%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-fill" data-skill="95"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-info">
+                                        <span>JavaScript</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-fill" data-skill="90"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-info">
+                                        <span>React.js</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-fill" data-skill="85"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                            <h3>Backend Development</h3>
+                            <div class="skill-bars">
+                                <div class="skill-bar">
+                                    <div class="skill-info">
+                                        <span>Node.js</span>
+                                        <span>80%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-fill" data-skill="80"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-info">
+                                        <span>Python</span>
+                                        <span>75%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-fill" data-skill="75"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-info">
+                                        <span>Database</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-fill" data-skill="85"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                            <h3>Design & Tools</h3>
+                            <div class="skill-bars">
+                                <div class="skill-bar">
+                                    <div class="skill-info">
+                                        <span>UI/UX Design</span>
+                                        <span>88%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-fill" data-skill="88"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-info">
+                                        <span>Figma</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-fill" data-skill="90"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-info">
+                                        <span>Git & GitHub</span>
+                                        <span>92%</span>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="skill-fill" data-skill="92"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Have a Project in Mind?</h2>
+            <p class="contact-subtitle" data-aos="fade-up">Let's bring your ideas to life together!</p>
+            
+            <div class="contact-content">
+                <div class="contact-form-container" data-aos="fade-right">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-info" data-aos="fade-left">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>hello@portfolio.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 234 567 8900</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>New York, USA</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Portfolio. All rights reserved.</p>
+            <p>Designed & Developed with <i class="fas fa-heart"></i></p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

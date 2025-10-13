@@ -1,0 +1,362 @@
+let scene, camera, renderer, particles;
+let mouseX = 0, mouseY = 0;
+let targetX = 0, targetY = 0;
+
+function initThree() {
+    const canvas = document.getElementById('three-canvas');
+    
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 5;
+    
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 1000;
+    const posArray = new Float32Array(particlesCount * 3);
+    
+    for(let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 10;
+    }
+    
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    
+    const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.02,
+        color: 0x6366f1,
+        transparent: true,
+        opacity: 0.8,
+        blending: THREE.AdditiveBlending
+    });
+    
+    particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particles);
+    
+    const geometry = new THREE.TorusGeometry(1.5, 0.3, 16, 100);
+    const material = new THREE.MeshBasicMaterial({
+        color: 0x8b5cf6,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.3
+    });
+    const torus = new THREE.Mesh(geometry, material);
+    scene.add(torus);
+    
+    function animate() {
+        requestAnimationFrame(animate);
+        
+        particles.rotation.x += 0.0005;
+        particles.rotation.y += 0.001;
+        
+        torus.rotation.x += 0.01;
+        torus.rotation.y += 0.005;
+        torus.rotation.z += 0.01;
+        
+        camera.position.x += (targetX - camera.position.x) * 0.05;
+        camera.position.y += (-targetY - camera.position.y) * 0.05;
+        
+        renderer.render(scene, camera);
+    }
+    
+    animate();
+}
+
+function initCursor() {
+    const cursor = document.querySelector('.cursor');
+    const follower = document.querySelector('.cursor-follower');
+    
+    let cursorX = 0, cursorY = 0;
+    let followerX = 0, followerY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        cursorX = e.clientX;
+        cursorY = e.clientY;
+        
+        targetX = (e.clientX / window.innerWidth) * 2 - 1;
+        targetY = (e.clientY / window.innerHeight) * 2 - 1;
+    });
+    
+    function updateCursor() {
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        
+        followerX += (cursorX - followerX) * 0.1;
+        followerY += (cursorY - followerY) * 0.1;
+        
+        follower.style.left = followerX + 'px';
+        follower.style.top = followerY + 'px';
+        
+        requestAnimationFrame(updateCursor);
+    }
+    
+    updateCursor();
+}
+
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    html.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+    
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+}
+
+function updateThemeIcon(theme) {
+    const icon = document.querySelector('#themeToggle i');
+    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+function initNavigation() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.section');
+    
+    function setActiveLink() {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (window.scrollY >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', setActiveLink);
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            window.scrollTo({
+                top: targetSection.offsetTop - 70,
+                behavior: 'smooth'
+            });
+        });
+    });
+}
+
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('aos-animate');
+                
+                if (entry.target.classList.contains('skill-bar')) {
+                    const skillFill = entry.target.querySelector('.skill-fill');
+                    const skillValue = skillFill.getAttribute('data-skill');
+                    setTimeout(() => {
+                        skillFill.style.width = skillValue + '%';
+                    }, 200);
+                }
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('[data-aos]').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+function initPortfolioTabs() {
+    const tabs = document.querySelectorAll('.portfolio-tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetTab = tab.getAttribute('data-tab');
+            
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === targetTab) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
+}
+
+function initProjectCards() {
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectLinks = {
+        0: 'https://example.com/ecommerce',
+        1: 'https://example.com/dashboard',
+        2: 'https://example.com/portfolio',
+        3: 'https://example.com/taskmanager'
+    };
+    
+    projectCards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            if (projectLinks[index]) {
+                window.open(projectLinks[index], '_blank');
+            }
+        });
+        
+        card.style.cursor = 'none';
+    });
+}
+
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            subject: formData.get('subject'),
+            message: formData.get('message')
+        };
+        
+        console.log('Form submitted:', data);
+        
+        const submitBtn = form.querySelector('.btn-submit');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+            submitBtn.innerHTML = '<span>Message Sent!</span><i class="fas fa-check"></i>';
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                form.reset();
+            }, 2000);
+        }, 1500);
+    });
+}
+
+function initDownloadCV() {
+    const downloadBtn = document.getElementById('downloadCV');
+    
+    downloadBtn.addEventListener('click', () => {
+        const cvContent = `
+CURRICULUM VITAE
+
+Name: Your Name
+Email: hello@portfolio.com
+Phone: +1 234 567 8900
+Location: New York, USA
+
+PROFESSIONAL SUMMARY
+Passionate developer and designer with 5+ years of experience in creating beautiful, 
+functional websites and applications. Specializing in modern web technologies and 
+creating immersive digital experiences.
+
+EXPERIENCE
+Senior Developer | Tech Company (2020 - Present)
+- Led development of 50+ successful projects
+- Managed a team of 5 developers
+- Implemented modern web technologies
+
+SKILLS
+Frontend: HTML, CSS, JavaScript, React.js
+Backend: Node.js, Python, Database Management
+Design: UI/UX Design, Figma
+
+EDUCATION
+Bachelor of Computer Science
+University Name (2015 - 2019)
+        `.trim();
+        
+        const blob = new Blob([cvContent], { type: 'text/plain' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'CV_Portfolio.txt';
+        a.click();
+        window.URL.revokeObjectURL(url);
+        
+        downloadBtn.innerHTML = '<i class="fas fa-check"></i> Downloaded!';
+        
+        setTimeout(() => {
+            downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download CV';
+        }, 2000);
+    });
+}
+
+function initMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+        navLinks.style.left = navLinks.style.left === '0px' ? '-100%' : '0px';
+        menuToggle.classList.toggle('active');
+    });
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                navLinks.style.left = '-100%';
+                menuToggle.classList.remove('active');
+            }
+        });
+    });
+}
+
+function initParallax() {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.home-content, .profile-image-container');
+        
+        parallaxElements.forEach(el => {
+            const speed = 0.5;
+            el.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
+}
+
+window.addEventListener('resize', () => {
+    if (renderer) {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    initThree();
+    initCursor();
+    initThemeToggle();
+    initNavigation();
+    initScrollAnimations();
+    initPortfolioTabs();
+    initProjectCards();
+    initContactForm();
+    initDownloadCV();
+    initMobileMenu();
+    initParallax();
+});
