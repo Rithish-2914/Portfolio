@@ -117,12 +117,17 @@ Three tabs for different content:
 - Built custom cursor tracer system with white cursor for dark theme, black for light theme
 - Created dark/light theme toggle with localStorage persistence
 - **REDESIGNED**: Changed color scheme from blue to elegant black/white with gold (#d4af37) and silver (#c0c0c0) accents
-- **REDESIGNED**: Moved semi-circular profile image to right side with slide-in animation
+- **REDESIGNED**: Semi-circular profile image positioned on right side with flat edge attached to screen, slides in from right with floating animation
+- **PERSONALIZED**: Added name "Bajjuri Rithish" throughout the website (logo, headings, about section, CV)
+- **NEW SECTION**: Added Startups/Companies portfolio tab with 4 company experience cards featuring rotating icon animations
+- **REDESIGNED**: Replaced Skills section with TechStack featuring 16 technology logos (HTML, CSS, JS, React, Vue, Angular, Node, Python, etc.) with floating animations
+- **ENHANCED**: Redesigned theme toggle button with gradient background, hover effects, and smooth transitions
 - Improved all animations with smoother cubic-bezier easing functions
+- Optimized cursor performance with passive event listeners for no lag in animation regions
 - Added scroll-triggered animations with enhanced transitions
-- Implemented portfolio tabs (Projects, Certificates, Skills)
+- Implemented portfolio tabs (Projects, Startups/Companies, Certificates, TechStack)
 - Created contact form with validation
-- Added CV download functionality
+- Added CV download functionality with personalized Bajjuri Rithish information
 - Set up HTTP server workflow on port 5000
 
 ## Customization Guide
