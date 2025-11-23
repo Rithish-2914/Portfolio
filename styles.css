@@ -1735,7 +1735,7 @@ button:hover ~ .cursor {
     color: var(--text-color);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .content-stats {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1744,8 +1744,96 @@ button:hover ~ .cursor {
         grid-template-columns: 1fr;
     }
     
+    .media-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .airealm-tools-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .tool-card {
+        padding: 2rem;
+    }
+    
+    .stat-box h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .media-section,
+    .airealm-section,
+    .content-section {
+        padding: 3rem 0;
+    }
+    
     .media-grid,
     .airealm-tools-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .content-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .content-categories {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .media-card,
+    .tool-card,
+    .content-category {
+        padding: 1.5rem;
+    }
+    
+    .tool-icon {
+        font-size: 3rem;
+    }
+    
+    .stat-box h3 {
+        font-size: 2rem;
+    }
+    
+    .stat-box p {
+        font-size: 0.9rem;
+    }
+    
+    .marquee-content span,
+    .brands-content span {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .media-card h3,
+    .tool-card h3,
+    .content-category h3 {
+        font-size: 1.2rem;
+    }
+    
+    .media-card p,
+    .tool-card p,
+    .content-category p {
+        font-size: 0.9rem;
+    }
+    
+    .tool-tech span {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .stat-box h3 {
+        font-size: 1.8rem;
     }
 }
