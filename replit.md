@@ -1,7 +1,7 @@
 # 3D Animated Portfolio Website
 
 ## Overview
-A fully animated, professional portfolio website for Bajjuri Rithish, a 17-year-old entrepreneur and VIT Vellore student. The project aims to showcase his entrepreneurial achievements, technical skills, and creative design capabilities through an immersive and interactive user experience featuring 3D graphics, custom cursor effects, and smooth animations. It highlights his world record, numerous projects, media features, AI innovations, and content creation impact.
+A fully animated, professional portfolio website for Bajjuri Rithish, a 17-year-old entrepreneur based in Hyderabad, India. The project aims to showcase his entrepreneurial achievements, technical skills, and creative design capabilities through an immersive and interactive user experience featuring 3D graphics, custom cursor effects, and smooth animations. It highlights his world record, numerous projects, media features, AI innovations, and content creation impact.
 
 ## User Preferences
 I prefer the AI to operate with precision, implementing changes exactly as specified without deviation. When making modifications, ensure the core aesthetic and functional integrity of the existing design is maintained. For any new feature or significant alteration, I require a clear explanation of the proposed changes and their impact before implementation. My workflow involves iterative development, and I expect the AI to integrate seamlessly into this process, providing regular updates and checkpoints.

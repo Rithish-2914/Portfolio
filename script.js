@@ -1,66 +1,146 @@
-let scene, camera, renderer, particles;
+let scene, camera, renderer, particles, torus;
 let mouseX = 0, mouseY = 0;
 let targetX = 0, targetY = 0;
+let animationFrameId;
+let isAnimating = true;
+let isWebGLAvailable = true;
+
+function isWebGLSupported() {
+    try {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+        return !!context;
+    } catch (e) {
+        return false;
+    }
+}
 
 function initThree() {
     const canvas = document.getElementById('three-canvas');
     
-    scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 5;
+    if (!canvas) return;
     
-    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 1000;
-    const posArray = new Float32Array(particlesCount * 3);
-    
-    for(let i = 0; i < particlesCount * 3; i++) {
-        posArray[i] = (Math.random() - 0.5) * 10;
+    if (!isWebGLSupported()) {
+        console.warn('WebGL not available, skipping 3D animation');
+        isWebGLAvailable = false;
+        canvas.style.background = 'radial-gradient(circle at center, rgba(212, 175, 55, 0.1), transparent)';
+        return;
     }
     
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    
-    const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.025,
-        color: 0xd4af37,
-        transparent: true,
-        opacity: 0.6,
-        blending: THREE.AdditiveBlending
-    });
-    
-    particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particles);
-    
-    const geometry = new THREE.TorusGeometry(1.5, 0.3, 16, 100);
-    const material = new THREE.MeshBasicMaterial({
-        color: 0xc0c0c0,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.25
-    });
-    const torus = new THREE.Mesh(geometry, material);
-    scene.add(torus);
-    
-    function animate() {
-        requestAnimationFrame(animate);
+    try {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 5;
         
+        const antialiasEnabled = window.devicePixelRatio <= 2;
+        renderer = new THREE.WebGLRenderer({ 
+            canvas: canvas, 
+            alpha: true, 
+            antialias: antialiasEnabled,
+            powerPreference: 'high-performance'
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+        
+        canvas.addEventListener('webglcontextlost', handleContextLost, false);
+        canvas.addEventListener('webglcontextrestored', handleContextRestored, false);
+        
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 800;
+        const posArray = new Float32Array(particlesCount * 3);
+        
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 10;
+        }
+        
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.025,
+            color: 0xd4af37,
+            transparent: true,
+            opacity: 0.6,
+            blending: THREE.AdditiveBlending
+        });
+        
+        particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
+        
+        const geometry = new THREE.TorusGeometry(1.5, 0.3, 16, 100);
+        const material = new THREE.MeshBasicMaterial({
+            color: 0xc0c0c0,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.25
+        });
+        torus = new THREE.Mesh(geometry, material);
+        scene.add(torus);
+        
+        setupIntersectionObserver(canvas);
+        
+        animate();
+    } catch (error) {
+        console.error('Failed to initialize Three.js:', error);
+        isWebGLAvailable = false;
+        canvas.style.background = 'radial-gradient(circle at center, rgba(212, 175, 55, 0.1), transparent)';
+    }
+}
+
+function handleContextLost(event) {
+    event.preventDefault();
+    if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+    }
+    isAnimating = false;
+    console.warn('WebGL context lost');
+}
+
+function handleContextRestored() {
+    console.log('WebGL context restored');
+    isAnimating = true;
+    animate();
+}
+
+function setupIntersectionObserver(canvas) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (!isAnimating && isWebGLAvailable) {
+                    isAnimating = true;
+                    animate();
+                }
+            } else {
+                isAnimating = false;
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                }
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    observer.observe(canvas.parentElement);
+}
+
+function animate() {
+    if (!isAnimating || !renderer) return;
+    
+    animationFrameId = requestAnimationFrame(animate);
+    
+    if (particles) {
         particles.rotation.x += 0.0003;
         particles.rotation.y += 0.0006;
-        
+    }
+    
+    if (torus) {
         torus.rotation.x += 0.006;
         torus.rotation.y += 0.003;
         torus.rotation.z += 0.006;
-        
-        camera.position.x += (targetX - camera.position.x) * 0.03;
-        camera.position.y += (-targetY - camera.position.y) * 0.03;
-        
-        renderer.render(scene, camera);
     }
     
-    animate();
+    camera.position.x += (targetX - camera.position.x) * 0.03;
+    camera.position.y += (-targetY - camera.position.y) * 0.03;
+    
+    renderer.render(scene, camera);
 }
 
 function initCursor() {
@@ -291,12 +371,17 @@ function initParallax() {
     });
 }
 
+let resizeTimeout;
 window.addEventListener('resize', () => {
-    if (renderer) {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    }
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        if (renderer && camera) {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+        }
+    }, 150);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
