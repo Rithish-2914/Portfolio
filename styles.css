@@ -733,30 +733,61 @@ button:hover ~ .cursor {
 
 .record-badge {
     text-align: center;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
     color: white;
-    padding: 3rem 2rem;
+    padding: 4rem 3rem;
     border-radius: 30px;
-    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.4);
+    box-shadow: 
+        0 30px 80px rgba(255, 215, 0, 0.6),
+        0 0 100px rgba(255, 215, 0, 0.4),
+        inset 0 0 80px rgba(255, 255, 255, 0.2);
     animation: pulseScale 3s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.record-badge::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 @keyframes pulseScale {
     0%, 100% {
         transform: scale(1);
-        box-shadow: 0 20px 60px rgba(212, 175, 55, 0.4);
+        box-shadow: 
+            0 30px 80px rgba(255, 215, 0, 0.6),
+            0 0 100px rgba(255, 215, 0, 0.4),
+            inset 0 0 80px rgba(255, 255, 255, 0.2);
     }
     50% {
-        transform: scale(1.02);
-        box-shadow: 0 25px 70px rgba(212, 175, 55, 0.6);
+        transform: scale(1.05);
+        box-shadow: 
+            0 40px 100px rgba(255, 215, 0, 0.8),
+            0 0 120px rgba(255, 215, 0, 0.6),
+            inset 0 0 100px rgba(255, 255, 255, 0.3);
     }
 }
 
 .record-badge i {
-    font-size: 5rem;
-    margin-bottom: 1rem;
+    font-size: 6rem;
+    margin-bottom: 1.5rem;
     display: block;
     animation: rotate360 4s linear infinite;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    position: relative;
+    z-index: 2;
 }
 
 @keyframes rotate360 {
@@ -765,14 +796,25 @@ button:hover ~ .cursor {
 }
 
 .record-badge h2 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
     font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 2;
 }
 
 .record-badge p {
-    font-size: 1.2rem;
-    opacity: 0.9;
+    font-size: 1.4rem;
+    opacity: 1;
+    font-weight: 600;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
 }
 
 .achievements-grid {
@@ -1343,19 +1385,20 @@ button:hover ~ .cursor {
     }
     
     .record-badge {
-        padding: 2rem 1.5rem;
+        padding: 3rem 2rem;
     }
     
     .record-badge i {
-        font-size: 3.5rem;
+        font-size: 4.5rem;
     }
     
     .record-badge h2 {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
+        letter-spacing: 1px;
     }
     
     .record-badge p {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     
     .achievements-grid {

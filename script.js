@@ -259,59 +259,6 @@ function initContactForm() {
     });
 }
 
-function initDownloadCV() {
-    const downloadBtn = document.getElementById('downloadCV');
-    
-    downloadBtn.addEventListener('click', () => {
-        const cvContent = `
-CURRICULUM VITAE
-
-Name: Bajjuri Rithish
-Email: bajjuririthish@portfolio.com
-Phone: +1 234 567 8900
-Location: New York, USA
-
-PROFESSIONAL SUMMARY
-Passionate full stack developer and designer with 5+ years of experience in creating 
-beautiful, functional websites and applications. Specializing in modern web technologies 
-and creating immersive digital experiences.
-
-EXPERIENCE
-Full Stack Developer | TechCorp Solutions (2022 - Present)
-- Led development of 50+ successful enterprise-level projects
-- Managed a team of 5 developers
-- Implemented modern web technologies and scalable solutions
-
-Frontend Developer | InnovateLabs (2020 - 2022)
-- Built responsive UI/UX for SaaS products
-- Developed interactive web applications
-
-TECHNICAL SKILLS
-Frontend: HTML5, CSS3, JavaScript, React.js, Vue.js, Angular
-Backend: Node.js, Python, PHP, Java
-Database: MongoDB, PostgreSQL
-Tools: Git, Docker, AWS, Figma
-
-EDUCATION
-Bachelor of Computer Science
-University Name (2015 - 2019)
-        `.trim();
-        
-        const blob = new Blob([cvContent], { type: 'text/plain' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'CV_Bajjuri_Rithish.txt';
-        a.click();
-        window.URL.revokeObjectURL(url);
-        
-        downloadBtn.innerHTML = '<i class="fas fa-check"></i> Downloaded!';
-        
-        setTimeout(() => {
-            downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download CV';
-        }, 2000);
-    });
-}
 
 function initMobileMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
@@ -335,10 +282,10 @@ function initMobileMenu() {
 function initParallax() {
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.home-content, .profile-image-container');
+        const parallaxElements = document.querySelectorAll('.home-content');
         
         parallaxElements.forEach(el => {
-            const speed = 0.5;
+            const speed = 0.3;
             el.style.transform = `translateY(${scrolled * speed}px)`;
         });
     });
@@ -361,7 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initPortfolioTabs();
     initProjectCards();
     initContactForm();
-    initDownloadCV();
     initMobileMenu();
     initParallax();
 });
