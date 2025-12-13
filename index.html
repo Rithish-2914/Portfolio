@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bajjuri Rithish - Young Entrepreneur & Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Bajjuri Rithish</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#content" class="nav-link">Content</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="section home-section">
+        <canvas id="three-canvas"></canvas>
+        <div class="home-content">
+            <div class="profile-photo">
+                <div class="photo-circle">
+                    <img src="profile-photo.jpg" alt="Bajjuri Rithish" id="profileImg">
+                </div>
+            </div>
+            <h1 class="glitch" data-text="Bajjuri Rithish">Bajjuri Rithish</h1>
+            <p class="subtitle">Young Entrepreneur | Full Stack Developer | World Record Holder</p>
+            <p class="tagline">Let's not predict the future, let's build it!</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="mailto:bajjuririthish521@gmail.com?subject=Speaking Engagement Inquiry" class="btn btn-speaking">
+                    <i class="fas fa-microphone-alt"></i>
+                    <span>Book Me for Speaking</span>
+                </a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <p>Scroll Down</p>
+        </div>
+    </section>
+
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <p>Hello! I'm <strong>Bajjuri Rithish</strong>, a 17-year-old young entrepreneur based in <strong>Hyderabad, India</strong>.</p>
+                    <p>I'm passionate about building solutions that make a real impact. As a <strong>world record holder for being the youngest to launch startups made solo</strong>, I've turned my vision into reality through dedication and innovation.</p>
+                    <p>I founded my own <strong>clothing brand</strong> and have developed multiple projects including AI assistants, websites for NGOs and schools, a comprehensive JEE and NEET preparation platform for 11th and 12th graders, an automatic scrolling system, and a KMRL dashboard for Kochi Metro Rail Limited.</p>
+                    <p>My expertise spans across <strong>full-stack development, AI integration, and automation</strong>. I specialize in creating immersive digital experiences that combine creativity with cutting-edge technology.</p>
+                    <p>Beyond coding, I'm also a skilled <strong>public speaker</strong>, sharing my journey and inspiring others to pursue their entrepreneurial dreams.</p>
+                </div>
+                <div class="about-stats" data-aos="fade-left">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>World Record</h3>
+                        <p>Youngest Solo Startup Founder</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>10+</h3>
+                        <p>Major Projects Launched</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>15+</h3>
+                        <p>Technologies Mastered</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>1000+</h3>
+                        <p>Students Mentored</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Skills & Technologies</h2>
+            <p class="section-subtitle" data-aos="fade-up">Technologies I work with to bring ideas to life</p>
+            
+            <div class="skills-grid">
+                <div class="skill-card" data-aos="fade-up">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                    <h3>Python</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="50">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django">
+                    <h3>Django</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                    <h3>React</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+                    <h3>PostgreSQL</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                    <h3>Node.js</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="250">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js">
+                    <h3>Next.js</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript">
+                    <h3>TypeScript</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="350">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                    <h3>MongoDB</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="450">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                    <h3>HTML5</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                    <h3>CSS3</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="550">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                    <h3>Git</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js">
+                    <h3>Express.js</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="650">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+                    <h3>Docker</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="ai-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Prompting</h3>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="750">
+                    <div class="speaking-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3>Public Speaking</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+            <p class="section-subtitle" data-aos="fade-up">Building solutions that make a real impact</p>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-aos="zoom-in">
+                    <div class="project-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Assistant</h3>
+                    <p>Advanced AI-powered assistant for automating tasks and providing intelligent responses</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>AI/ML</span>
+                        <span>NLP</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>NGO & School Websites</h3>
+                    <p>Professional websites for non-profit organizations and educational institutions</p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>JEE & NEET Prep Platform</h3>
+                    <p>Comprehensive online learning platform for 11th and 12th grade competitive exam preparation</p>
+                    <div class="project-tech">
+                        <span>Next.js</span>
+                        <span>PostgreSQL</span>
+                        <span>Django</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="project-icon">
+                        <i class="fas fa-subway"></i>
+                    </div>
+                    <h3>KMRL Dashboard</h3>
+                    <p>Real-time dashboard for Kochi Metro Rail Limited operations and analytics</p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>Real-time Data</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="project-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3>Automatic Scrolling System</h3>
+                    <p>Intelligent auto-scrolling solution with smart content detection</p>
+                    <div class="project-tech">
+                        <span>JavaScript</span>
+                        <span>Automation</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="project-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Clothing Brand</h3>
+                    <p>Founded and launched my own clothing brand with e-commerce platform</p>
+                    <div class="project-tech">
+                        <span>E-commerce</span>
+                        <span>Entrepreneurship</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="project-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Workflow Automation</h3>
+                    <p>Automated business workflows and repetitive tasks for efficiency</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Automation</span>
+                        <span>APIs</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="project-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Data Processing Automation</h3>
+                    <p>Automated data extraction, processing, and reporting systems</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Node.js</span>
+                        <span>Automation</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="800">
+                    <div class="project-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3>Real-Time AI Voice Assistant</h3>
+                    <p>Own AI-powered voice assistant with real-time speech recognition and intelligent responses</p>
+                    <div class="project-tech">
+                        <span>AI/ML</span>
+                        <span>Speech Recognition</span>
+                        <span>Python</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="900">
+                    <div class="project-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <h3>GesturePod</h3>
+                    <p>Send text and images without touching a thing using gesture recognition technology</p>
+                    <div class="project-tech">
+                        <span>Computer Vision</span>
+                        <span>AI/ML</span>
+                        <span>Python</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="1000">
+                    <div class="project-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>DeepWork AI</h3>
+                    <p>AI agent that thinks and researches in real-time, scanning 15-20 trusted sources, cross-checking facts, and filtering misinformation to deliver reliable answers</p>
+                    <div class="project-tech">
+                        <span>AI Agent</span>
+                        <span>Web Scraping</span>
+                        <span>NLP</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="1100">
+                    <div class="project-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>SwapHands</h3>
+                    <p>A marketplace designed specifically for hostellers to buy, sell, and exchange items</p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>E-commerce</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="1200">
+                    <div class="project-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>DevNotes</h3>
+                    <p>Helped 1000+ university students by providing a comprehensive website with all tech stack notes</p>
+                    <div class="project-tech">
+                        <span>Education</span>
+                        <span>Web Dev</span>
+                        <span>Documentation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content" class="section content-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Content Creator & Educator</h2>
+            <p class="section-subtitle" data-aos="fade-up">Sharing knowledge and inspiring others</p>
+            
+            <div class="content-stats" data-aos="fade-up">
+                <div class="stat-box">
+                    <h3>1,500+</h3>
+                    <p>Followers on Instagram</p>
+                </div>
+                <div class="stat-box">
+                    <h3>10K+</h3>
+                    <p>Total views across content</p>
+                </div>
+            </div>
+
+            <div class="content-categories">
+                <div class="content-category" data-aos="fade-right">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Global Educator</h3>
+                    <p>National & International Speaker at top institutions including IIT Madras, Christ University, and 1,000+ others</p>
+                </div>
+
+                <div class="content-category" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Online Masterclasses</h3>
+                    <p>Weekly AI Bootcamps with 10K+ Students learning to actually use AI—not just hear about it</p>
+                </div>
+
+                <div class="content-category" data-aos="fade-left" data-aos-delay="200">
+                    <i class="fas fa-video"></i>
+                    <h3>Content Production</h3>
+                    <p>Script, shoot, act & edit every video myself. Proficient in Premiere Pro, After Effects, and Photoshop</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="section achievements-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Achievements & Recognition</h2>
+            
+            <div class="achievement-highlight" data-aos="fade-up">
+                <div class="record-badge">
+                    <i class="fas fa-trophy"></i>
+                    <h2>World Record Holder</h2>
+                    <p>Youngest to Launch Startups Made Solo</p>
+                </div>
+            </div>
+
+            <div class="achievements-grid">
+                <div class="achievement-card" data-aos="fade-up">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Young Entrepreneur</h3>
+                    <p>Founded clothing brand and multiple tech startups at age 17</p>
+                </div>
+
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-code-branch"></i>
+                    <h3>Full-Stack Developer</h3>
+                    <p>Proficient in 15+ modern technologies and frameworks</p>
+                </div>
+
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Global Speaker</h3>
+                    <p>Speaking at hackathons, colleges, and tech events nationwide</p>
+                </div>
+
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-microphone"></i>
+                    <h3>Public Speaker</h3>
+                    <p>Sharing entrepreneurial journey and inspiring young minds</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="section certifications-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Certifications</h2>
+            <p class="section-subtitle" data-aos="fade-up">Professional certifications and achievements</p>
+            
+            <div class="certifications-grid">
+                <div class="certification-card" data-aos="zoom-in">
+                    <div class="cert-image">
+                        <img src="certificates/google-digital-marketing.png" alt="Google Digital Marketing Certificate">
+                    </div>
+                    <div class="cert-info">
+                        <h3>Google Digital Marketing</h3>
+                        <p>The Fundamentals of Digital Marketing</p>
+                        <span class="cert-date">April 2022</span>
+                    </div>
+                </div>
+
+                <div class="certification-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="cert-image">
+                        <img src="certificates/python-pcap.png" alt="Python PCAP Certificate">
+                    </div>
+                    <div class="cert-info">
+                        <h3>Python Programming Essentials</h3>
+                        <p>PCAP - Cisco Networking Academy & OpenEDG</p>
+                        <span class="cert-date">April 2022</span>
+                    </div>
+                </div>
+
+                <div class="certification-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="cert-image">
+                        <img src="certificates/ibm-python-data-science.png" alt="IBM Python for Data Science Certificate">
+                    </div>
+                    <div class="cert-info">
+                        <h3>Python for Data Science</h3>
+                        <p>IBM Cognitive Class</p>
+                        <span class="cert-date">April 2022</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Have a Project in Mind?</h2>
+            <p class="contact-subtitle" data-aos="fade-up">Let's bring your ideas to life together!</p>
+            
+            <div class="contact-content">
+                <div class="contact-form-container" data-aos="fade-right">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-info" data-aos="fade-left">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>bajjuririthish521@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 9030840952</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Hyderabad, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/rithishbajjuri" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/rithish_2914" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Bajjuri Rithish. All rights reserved.</p>
+            <p>Designed & Developed with <i class="fas fa-heart"></i> by Bajjuri Rithish</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
