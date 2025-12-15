@@ -287,21 +287,9 @@ function initPortfolioTabs() {
 
 function initProjectCards() {
     const projectCards = document.querySelectorAll('.project-card');
-    const projectLinks = {
-        0: 'https://example.com/ecommerce',
-        1: 'https://example.com/dashboard',
-        2: 'https://example.com/portfolio',
-        3: 'https://example.com/taskmanager'
-    };
     
-    projectCards.forEach((card, index) => {
-        card.addEventListener('click', () => {
-            if (projectLinks[index]) {
-                window.open(projectLinks[index], '_blank');
-            }
-        });
-        
-        card.style.cursor = 'none';
+    projectCards.forEach((card) => {
+        card.style.cursor = 'default';
     });
 }
 
